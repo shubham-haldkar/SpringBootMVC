@@ -25,7 +25,7 @@ public class HomeController {
         // int j = Integer.parseInt(req.getParameter("num2"));
 
         int sum = i+j ;
-
+   
         // passing value by session
         // HttpSession session =  req.getSession();
         session.setAttribute("sum", sum) ;
