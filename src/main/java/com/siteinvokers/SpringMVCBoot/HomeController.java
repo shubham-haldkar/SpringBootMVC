@@ -16,8 +16,10 @@ public class HomeController {
  
 	// Method will accept request for /
 	@RequestMapping("/")
-    public String home(){
-		return "index.jsp" ;
+    public ModelAndView home(){
+      ModelAndView mv = new ModelAndView() ;
+      mv.setViewName("index");
+		  return mv ;
     }
 
     // @RequestMapping("add")
@@ -35,7 +37,7 @@ public class HomeController {
     @RequestMapping("add")
     public ModelAndView add( @RequestParam("num1") int i, @RequestParam("num2") int j  ){
       ModelAndView mv = new ModelAndView() ;
-      mv.setViewName("result.jsp");
+      mv.setViewName("result");
       int sum = i+j ;
       mv.addObject("sum", sum) ;
       return  mv ;
