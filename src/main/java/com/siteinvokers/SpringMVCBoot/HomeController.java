@@ -1,13 +1,10 @@
 package com.siteinvokers.SpringMVCBoot;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -17,8 +14,7 @@ public class HomeController {
 	// Method will accept request for /
 	@RequestMapping("/")
     public ModelAndView home(){
-      ModelAndView mv = new ModelAndView() ;
-      mv.setViewName("index");
+      ModelAndView mv = new ModelAndView("index") ;
 		  return mv ;
     }
 
@@ -35,11 +31,17 @@ public class HomeController {
     // }
 
     @RequestMapping("add")
-    public ModelAndView add( @RequestParam("num1") int i, @RequestParam("num2") int j  ){
-      ModelAndView mv = new ModelAndView() ;
-      mv.setViewName("result");
+    public String add( @RequestParam("num1") int i, @RequestParam("num2") int j, Model m  ){
       int sum = i+j ;
-      mv.addObject("sum", sum) ;
-      return  mv ;
+      
+      // adding data using model and view 
+      // ModelAndView mv = new ModelAndView() ;
+      // mv.setViewName("result");
+      // mv.addObject("sum", sum) ;
+      // return  mv ;
+
+      // using model
+      m.addAttribute("sum", sum) ;
+      return "result" ;
     }
 }
