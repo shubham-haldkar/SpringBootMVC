@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.siteinvokers.SpringMVCBoot.model.Programmer;
+
+import org.springframework.web.bind.annotation.RequestMethod;
+
+
 
 @Controller
 public class HomeController {
@@ -44,4 +49,14 @@ public class HomeController {
       m.addAttribute("sum", sum) ;
       return "result" ;
     }
+
+    @RequestMapping("addProgrammer" )
+    public String addProgrammer(@RequestParam("pid") int pid, @RequestParam("pname") String pname , Model m) {
+        Programmer p = new Programmer();
+        p.setPid(pid);
+        p.setPname(pname);
+        m.addAttribute("programmer" , p) ;
+        return "programmer";
+    }
+    
 }
