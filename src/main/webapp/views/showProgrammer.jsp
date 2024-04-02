@@ -8,6 +8,6 @@
 </head>
 <body>
  
-    Result is : ${p1}
+    Progrtammers  are : ${progs}
 </body>
 </html>

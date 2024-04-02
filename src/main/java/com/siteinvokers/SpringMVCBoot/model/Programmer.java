@@ -4,6 +4,10 @@ public class Programmer {
     private int pid;
     private String pname ;
     
+    public Programmer(int pid, String pname) {
+        this.pid = pid;
+        this.pname = pname ;
+    }
     public int getPid() {
         return pid;
     }

@@ -22,7 +22,7 @@
 	</form>
 
 	<h2> For adding user </h2>
-	<form method="get" action="addProgrammer">
+	<form method="post" action="addProgrammer">
 		Enter your id : <input type="text" name="pid" /><br>
 		Enter your name : <input type="text" name="pname" /><br>
 
